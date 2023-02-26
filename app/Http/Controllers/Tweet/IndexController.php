@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Tweet;
 
 use App\Http\Controllers\Controller;
+use App\Models\Tweet;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -12,6 +13,7 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('tweet.index', ['name' => 'laravel']);
+        $tweets = Tweet::all();
+        return view('tweet.index', ['tweets' => $tweets]);
     }
 }
