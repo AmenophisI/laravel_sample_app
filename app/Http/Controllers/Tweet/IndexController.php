@@ -13,7 +13,7 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $tweets = Tweet::all();
+        $tweets = Tweet::all()->sortByDesc('created_at');
         return view('tweet.index', ['tweets' => $tweets]);
     }
 }
